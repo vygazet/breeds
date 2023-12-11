@@ -1,0 +1,15 @@
+
+.gallery_image {
+    padding: 10px;
+    height: 400px;
+    width: 400px;
+}
+
+.container mt-2 {
+    display: grid;
+    grid-template-columns: 1fr 6fr 6fr 1fr;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+

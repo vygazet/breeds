@@ -1,0 +1,36 @@
+{% extends 'cats/base.html' %}
+{% block content %}
+<title><h4> {{ title }} </h4></title>
+<body>
+    <h1>{{ title2 }}</h1>
+    <div class="gallery">
+        {% for photo in photos %}
+        <a target="_blank">
+            <img src="{{ photo.photo.url }}" height="400" width="auto" alt="{{ photo.name }}">
+        </a>
+        <div class="desc"> {{ photo.name }} </div>
+        {% endfor %}
+    </div>
+</body>
+
+<div class="container puslapiai">
+    <nav aria-label="...">
+        {% if authors.has_other_pages %}
+            <ul class="pagination pagination-sm justify-content-end">
+                {% for i in authors.paginator.page_range %}
+                    {% if authors.number == i %}
+                        <li class="page-item active">
+                            <a class="page-link">{{ i }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </nav>
+</div>
+
+{% endblock %}

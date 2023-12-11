@@ -1,0 +1,41 @@
+{% extends 'cats/base.html' %}
+{% block content %}
+    <h1 style="text-align: center">{{ title2 }}</h1>
+    <div class="container mt-2">
+        {% for d in data %}
+            <div class="row">
+                <div class="col-md-6">
+                    {% if d.photo %}
+                        <p><img class="rounded" src="{{d.photo.url}}" height="400" width="auto"></p>
+                    {% endif %}
+                    <dl>
+                        <dt><p><b><h3>Pavadinimas: {{d.name}} </h3></b></dt></p>
+                        <dd><p>Šalis: {{d.country}} </dd></p>
+                        <dd><p>Ūgis (cm, max): {{d.height}} </dd></p>
+                        <dd><p>Gyvenimo trukmė (metai): {{d.lifespan}} </dd></p>
+                        <dd><p>Plačiau: {{d.description}} </dd></p>
+                        <hr>
+                    </dl>
+                </div>
+            </div>
+        {% endfor %}
+<div class="container puslapiai">
+    <nav aria-label="...">
+        {% if authors.has_other_pages %}
+            <ul class="pagination pagination-sm justify-content-end">
+                {% for i in authors.paginator.page_range %}
+                    {% if authors.number == i %}
+                        <li class="page-item active">
+                            <a class="page-link">{{ i }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </nav>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+header, nav, main {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: black;
+}
+title {
+    color: black;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+    padding: 20px;
+    color: black;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+}
+
+div.gallery {
+  margin: 10px;
+  border: 2px solid #ccc;
+  float: left;
+  width: 400px;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+.copyright {
+    text-align: center;
+    color: blue;
+}
