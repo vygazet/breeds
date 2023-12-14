@@ -1,10 +1,8 @@
-import os
 from django.shortcuts import render
 from .models import *
-from PIL import Image
-from django.conf import settings
 from django.views import generic
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 
 menu = [{'title': "Pradžia", 'url_name': "index"},
@@ -57,3 +55,10 @@ class BreedsListView(generic.ListView):
     model = Breeds
     paginate_by = 2
     template_name = 'info.html'
+
+
+def search(request):
+    query = request.GET.get('query')
+    # print(query)
+    search_results = Breeds.objects.filter(Q(name__icontains=query) | Q(country__icontains=query))
+    return render(request, 'cats/search.html', {'breeds': search_results, 'query': query})

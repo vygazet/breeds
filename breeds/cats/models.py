@@ -16,11 +16,3 @@ class Breeds(models.Model):
         verbose_name = 'Veislė'
         verbose_name_plural = 'Veislės'
         ordering = ['name', 'country']
-
-
-# class Images(models.Model):
-#     name = models.CharField(max_length=100)
-#     photo = models.ImageField(upload_to='images/')
-#
-#     def __str__(self):
-#         return self.name

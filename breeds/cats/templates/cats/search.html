@@ -1,0 +1,17 @@
+{% extends 'cats/base.html' %}
+{% load static %}
+{% block "content" %}
+  <h1>Paieškos pagal "{{query}}" rezultatai:</h1>
+  </br>
+  {% if breeds %}
+  <ul>
+    {% for breed in breeds %}
+      <li>
+        <a href="{% url 'breed' breed.id %}">{{ breed.name }}</a> ({{ breed.country }})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Oops. Nieko neradome :(</p>
+  {% endif %}
+  {% endblock %}
